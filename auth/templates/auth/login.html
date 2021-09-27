@@ -1,4 +1,26 @@
 {% extends "base.html" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('.static', filename='styles/style.css') }}">
+{% endblock %}
 {% block content %}
-<h1>User login</h1>
+<div class="center">
+    <h1>Login</h1>
+    <form method="post">
+      <div class="txt_field">
+        <input name="email" type="email" required>
+        <span></span>
+        <label>Email</label>
+      </div>
+      <div class="txt_field">
+        <input name="password" type="password" required>
+        <span></span>
+        <label>Password</label>
+      </div>
+      <input type="submit" value="Login">
+      <div class="link">
+          <a href="{{ url_for('auth.signup') }}">Sign Up</a>
+      </div>
+    </form>
+</div>
 {% endblock %}
